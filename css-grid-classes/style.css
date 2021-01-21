@@ -1,0 +1,43 @@
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  margin: auto;
+  width: 100vh;
+}
+
+.column-full {
+  padding-right: 47%;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.column-one-third {
+  flex-basis: calc(100% / 3);
+}
+
+p {
+  font-size: 15px;
+}
+
+.column-one-third > img {
+  width: 100%;
+}
+
+.column-one-fourth {
+  flex-basis: calc(100% / 4);
+}
+
+.column-one-fourth > img {
+  width: 100%;
+}
+
+.column-two-thirds {
+  flex-basis: calc(100% / 2);
+}
