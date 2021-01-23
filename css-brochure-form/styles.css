@@ -1,6 +1,6 @@
 .form-container {
   margin: auto;
-  width: 50%;
+  width: 600px;
 }
 
 h2 {
@@ -30,7 +30,7 @@ label {
 
 div > input {
   border-radius: 0.5em;
-  width: 600px;
+  width: 570px;
   height: 50px;
   border: 2px solid #e1e5ea;
   font-family: 'AtlasGrotesk', sans-serif;
@@ -42,7 +42,7 @@ div > input {
 
 select {
   border-radius: 0.3em;
-  width: 600px;
+  width: 570px;
   height: 50px;
   border: 2px solid #e1e5ea;
   background-color: #f5f3f3;
@@ -52,6 +52,10 @@ select {
   font-weight: normal;
   font-size: 18px;
   padding-left: 5px;
+}
+
+div.button {
+  text-align: right;
 }
 
 button {
@@ -64,7 +68,6 @@ button {
   font-weight: bold;
   width: 130px;
   height: 50px;
-  margin-left: 470px;
-  padding: 5px 10px;
+  padding: 10px 30px;
   font-size: 18px;
 }
