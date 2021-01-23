@@ -45,11 +45,11 @@ p {
 .row {
   display: flex;
   justify-content: center;
-  width: 45%;
+  width: 100%;
 }
 
 .column-half {
-  width: calc(100% / 2);
+  margin: auto;
 }
 
 .content-holder {
