@@ -1,6 +1,7 @@
 var orderHistory = [
   {
     orderPlaced: 'August 4, 2020',
+    items: ['book'],
     total: '$34.00',
     shipTo: 'JS Masher',
     orderNumber: '114-3941689-8772232',
@@ -12,10 +13,12 @@ var orderHistory = [
     cost: '$31.55',
     orderDetails: '',
     invoice: ''
+
   },
 
   {
     orderPlaced: 'July 19, 2020',
+    items: ['book'],
     total: '$44.53',
     shipTo: 'JS Masher',
     orderNumber: '113-9984268-1280257',
@@ -27,10 +30,12 @@ var orderHistory = [
     cost: '$41.33',
     orderDetails: '',
     invoice: ''
+
   },
 
   {
     orderPlaced: 'July 4, 2020',
+    items: ['adapter'],
     total: '$17.22',
     shipTo: 'JS Masher',
     orderNumber: '114-2875557-9059409',
@@ -47,6 +52,7 @@ var orderHistory = [
 
   {
     orderPlaced: 'July 3, 2020',
+    items: ['controller', 'book'],
     total: '$138.93',
     shipTo: 'JS Masher',
     orderNumber: '113-2883177-2648248',
@@ -58,10 +64,12 @@ var orderHistory = [
     cost: '$94.95',
     orderDetails: '',
     invoice: ''
+
   },
 
   {
     orderPlaced: 'July 3, 2020',
+    items: ['controller', 'book'],
     total: '$138.93',
     shipTo: 'JS Masher',
     orderNumber: '113-2883177-2648248',
@@ -73,6 +81,7 @@ var orderHistory = [
     cost: '$33.99',
     orderDetails: '',
     invoice: ''
+
   }
 
 ];
