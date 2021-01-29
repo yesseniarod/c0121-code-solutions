@@ -33,14 +33,17 @@ h2 {
 }
 
 .icon {
-  position: relative;
-  left: 5.75em;
+  margin-left: 5.75em;
   width: 70px;
 }
 
 .info {
-  position: relative;
-  left: 5em;
+  text-align: center;
+  padding-right: 2.5em;
+}
+
+.description {
+  padding-left: 0.5em;
 }
 
 h3 {
@@ -49,6 +52,4 @@ h3 {
 
 p {
   font-size: 12px;
-  position: relative;
-  left: -2.5em;
 }
