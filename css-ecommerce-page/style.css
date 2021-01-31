@@ -53,8 +53,7 @@ del {
 }
 
 .special {
-  position: relative;
-  top: -1em;
+  margin-top: 1px;
 }
 
 .cost {
@@ -62,7 +61,7 @@ del {
   color: black;
 }
 
-.lv {
+.louis-vuitton {
   width: 190px;
   object-fit: cover;
 }
