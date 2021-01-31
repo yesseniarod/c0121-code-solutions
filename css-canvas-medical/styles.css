@@ -23,18 +23,16 @@
 
 header > img {
   width: 100px;
-  position: relative;
-  top: 4rem;
+  margin-top: 4.5em;
   height: 120px;
 }
 
 ul {
   list-style: none;
-  position: relative;
-  top: 6rem;
+  margin-top: 6.8em;
   text-align: right;
   width: 500px;
-  left: -3.5em;
+  margin-left: -2.5em;
 }
 
 li {
@@ -48,6 +46,8 @@ a {
   font-weight: 500;
   font-size: 14px;
   color: #a6a2a2;
+  padding-left: 1.1em;
+  padding-right: 0.9em;
 }
 
 .button {
@@ -182,8 +182,8 @@ h3 {
   width: 150px;
   height: 40px;
   font-size: 14px;
-  position: relative;
-  top: 1.5em;
+  margin-top: 2em;
+  margin-right: 4em;
 }
 
 .row-five {
@@ -197,9 +197,8 @@ h3 {
 
 .address {
   width: 400px;
-  position: relative;
-  top: 5.5em;
-  left: 3.5em;
+  margin-top: 4.5em;
+  margin-left: 4em;
 }
 
 .address > img {
@@ -235,21 +234,27 @@ span > a {
 }
 
 .company {
-  top: -2em;
-  left: 6.5em;
-}
-
-.company,
-.product {
-  margin: auto;
-  position: relative;
+  margin-top: 2.5em;
+  margin-left: 2.5em;
+  margin-right: 5em;
   color: white;
 }
 
+.product {
+  margin-left: 3em;
+  margin-top: 2.5em;
+  color: white;
+}
+
+.company p,
+.product p {
+  font-size: 12px;
+}
+
 h5 {
-  font-size: 15px;
-  position: relative;
-  bottom: -0.5em;
+  font-size: 14px;
+  margin-left: 0.8em;
+  margin-bottom: 0.75em;
 }
 
 .row-six {
@@ -259,7 +264,6 @@ h5 {
 
 footer {
   height: 65px;
-  position: relative;
-  top: 2.5em;
-  left: 1.5em;
+  margin-top: 2em;
+  margin-left: 1.5em;
 }
