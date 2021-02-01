@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+h2 {
+  text-align: center;
+}
+
+.container {
+  margin: auto;
+}
+
+.row,
+.section {
+  width: 1000px;
+  display: flex;
+  margin: auto;
+  align-items: baseline;
+}
+
+.column {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.35em;
+  margin-right: 0.35em;
+}
+
+img {
+  width: 200px;
+  height: 290px;
+}
+
+.description {
+  width: 200px;
+}
+
+h3,
+p {
+  font-size: 13px;
+}
+
+span,
+del {
+  color: lightgrey;
+}
+
+.special {
+  margin-top: 1px;
+}
+
+.cost {
+  background-color: #f8edeb;
+  color: black;
+}
+
+.louis-vuitton {
+  width: 190px;
+  object-fit: cover;
+}
