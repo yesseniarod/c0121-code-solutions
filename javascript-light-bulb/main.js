@@ -7,7 +7,7 @@ function lightOnAndOff(event) {
   if (clickCounter % 2 !== 0) {
     $lightBulb.className = 'buttonClick';
     $container.className = 'lightOn';
-  } else if (clickCounter % 2 === 0) {
+  } else {
     $lightBulb.className = 'light-bulb';
     $container.className = 'container';
   }
