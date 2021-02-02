@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: black;
+}
+
+.light-bulb {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  border: none;
+  background-color: #232323;
+}
+
+.lightOn {
+  background-color: #f3e9dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.buttonClick {
+  background-color: #fae588;
+  box-shadow: 0 0 4px;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  border: none;
+}
