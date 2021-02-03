@@ -3,12 +3,12 @@ var $contactForm = document.querySelector('#contact-form');
 function handleSubmit(event) {
   event.preventDefault();
   var formsValues = {
-    name: document.forms[0].elements.name.value,
-    email: document.forms[0].elements.email.value,
-    message: document.forms[0].elements.message.value
+    name: $contactForm.elements.name.value,
+    email: $contactForm.elements.email.value,
+    message: $contactForm.elements.message.value
   };
   console.log(formsValues);
-  document.querySelector('#contact-form').reset();
+  $contactForm.reset();
 }
 
 $contactForm.addEventListener('submit', handleSubmit);
