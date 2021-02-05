@@ -3,19 +3,14 @@ body {
 }
 
 .container {
-  margin: auto;
-  width: 100vh;
-}
-
-.column-full {
-  padding-right: 47%;
+  margin: 0 auto;
+  width: 800px;
 }
 
 .row {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .column-one-third {
@@ -23,10 +18,11 @@ body {
 }
 
 p {
-  font-size: 15px;
+  font-size: 16px;
+  padding: 0.99em;
 }
 
-.column-one-third > img {
+img {
   width: 100%;
 }
 
@@ -34,10 +30,6 @@ p {
   flex-basis: calc(100% / 4);
 }
 
-.column-one-fourth > img {
-  width: 100%;
-}
-
 .column-two-thirds {
-  flex-basis: calc(100% / 2);
+  width: calc(200% / 3);
 }
