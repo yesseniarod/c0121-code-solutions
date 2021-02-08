@@ -26,11 +26,7 @@ body {
 }
 
 .cursor {
-  border-bottom: 2px solid currentColor;
-}
-
-.space {
-  margin-right: 0.5em;
+  border-bottom: 2px solid black;
 }
 
 .correct {
@@ -40,5 +36,4 @@ body {
 
 .incorrect {
   color: red;
-  border-bottom: 2px solid currentColor;
 }

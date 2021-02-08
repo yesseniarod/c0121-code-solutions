@@ -5,14 +5,14 @@ var $span = document.querySelectorAll('span');
 
 function typeTutor({ key }) {
   for (var i = 0; i < characters.length; i++) {
-    var currentCharacter = $span[i];
-    $span.className = 'cursor';
+    var currentCharacter = characters[i];
+    $span[i].className = 'cursor';
 
-    if (key === characters[i]) {
-      currentCharacter.classList.add('correct');
+    if (key === currentCharacter) {
+      $span[i].className = 'correct';
 
-    } else {
-      $span.className = 'incorrect';
+    } else if (key !== currentCharacter) {
+      $span[i].className = 'incorrect';
     }
 
   }
