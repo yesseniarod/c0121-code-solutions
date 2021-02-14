@@ -26,12 +26,11 @@ body {
 }
 
 .cursor {
-  border-bottom: 2px solid black;
+  text-decoration: underline;
 }
 
 .correct {
   color: #98da1f;
-  border-bottom: 2px solid currentColor;
 }
 
 .incorrect {
