@@ -2,6 +2,11 @@ var $next = document.querySelector('.next');
 var $previous = document.querySelector('.previous');
 // var $carouselImages = document.querySelector('.carousel');
 var $currentImage = document.querySelector('.first');
+var $radio1 = document.querySelector('.dot1');
+var $radio2 = document.querySelector('.dot2');
+var $radio3 = document.querySelector('.dot3');
+var $radio4 = document.querySelector('.dot4');
+var $radio5 = document.querySelector('.dot5');
 
 var clickCounter = 0;
 var clickBack = 0;
@@ -34,4 +39,21 @@ $previous.addEventListener('click', function (event) {
   } else {
     $currentImage.setAttribute('src', './images/001.png');
   }
+});
+
+$radio1.addEventListener('click', function (event) {
+  $currentImage.setAttribute('src', './images/001.png');
+});
+
+$radio2.addEventListener('click', function (event) {
+  $currentImage.setAttribute('src', './images/004.png');
+});
+$radio3.addEventListener('click', function (event) {
+  $currentImage.setAttribute('src', './images/007.png');
+});
+$radio4.addEventListener('click', function (event) {
+  $currentImage.setAttribute('src', './images/025.png');
+});
+$radio5.addEventListener('click', function (event) {
+  $currentImage.setAttribute('src', './images/039.png');
 });
