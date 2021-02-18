@@ -1,6 +1,5 @@
 var $next = document.querySelector('.next');
 var $previous = document.querySelector('.previous');
-// var $carouselImages = document.querySelector('.carousel');
 var $currentImage = document.querySelector('.first');
 var $radio1 = document.querySelector('.dot1');
 var $radio2 = document.querySelector('.dot2');
@@ -24,6 +23,7 @@ $next.addEventListener('click', function (event) {
   } else {
     $currentImage.setAttribute('src', './images/001.png');
   }
+  changeImage();
 });
 
 $previous.addEventListener('click', function (event) {
@@ -57,3 +57,20 @@ $radio4.addEventListener('click', function (event) {
 $radio5.addEventListener('click', function (event) {
   $currentImage.setAttribute('src', './images/039.png');
 });
+
+var imageSlider = ['./images/001.png', './images/004.png', './images/007.png', './images/025.png', './images/039.png'];
+
+var i = 0;
+var imageId = setInterval(changeImage, 3000);
+
+function changeImage() {
+  i++;
+  if (i < imageSlider.length) {
+    $currentImage.setAttribute('src', imageSlider[i]);
+
+  } else {
+    $currentImage.setAttribute('src', imageSlider[0]);
+    clearInterval(imageId);
+  }
+
+}
