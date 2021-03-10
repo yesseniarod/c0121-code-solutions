@@ -3,7 +3,7 @@ const difference = require('./subtract');
 const product = require('./multiply');
 const divide = require('./divide');
 
-// console.log(process.argv[3]);
+
 function calculate () {
   var x = Number(process.argv[2]);
   var y = Number(process.argv[4]);
