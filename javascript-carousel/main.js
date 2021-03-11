@@ -6,21 +6,21 @@ var $dotContainer = document.querySelector('.dots');
 var clickCounter = 0;
 var clickBack = 0;
 
-$next.addEventListener('click', function (event) {
-  clickCounter++;
-  if (clickCounter === 1) {
-    $currentImage.setAttribute('src', './images/004.png');
-  } else if (clickCounter === 2) {
-    $currentImage.setAttribute('src', './images/007.png');
-  } else if (clickCounter === 3) {
-    $currentImage.setAttribute('src', './images/025.png');
-  } else if (clickCounter === 4) {
-    $currentImage.setAttribute('src', './images/039.png');
-  } else {
-    $currentImage.setAttribute('src', './images/001.png');
-  }
-  changeImage();
-});
+// $next.addEventListener('click', function (event) {
+//   clickCounter++;
+//   if (clickCounter === 1) {
+//     $currentImage.setAttribute('src', './images/004.png');
+//   } else if (clickCounter === 2) {
+//     $currentImage.setAttribute('src', './images/007.png');
+//   } else if (clickCounter === 3) {
+//     $currentImage.setAttribute('src', './images/025.png');
+//   } else if (clickCounter === 4) {
+//     $currentImage.setAttribute('src', './images/039.png');
+//   } else {
+//     $currentImage.setAttribute('src', './images/001.png');
+//   }
+//   changeImage();
+// });
 
 $previous.addEventListener('click', function (event) {
   clickBack++;
@@ -57,6 +57,21 @@ var imageSlider = ['./images/001.png', './images/004.png', './images/007.png', '
 var i = 0;
 var imageId = setInterval(changeImage, 3000);
 
+$next.addEventListener('click', function (event) {
+  var currentIndex = 1;
+  if (currentIndex < imageSlider.length) {
+    $currentImage.setAttribute('src', imageSlider[currentIndex]);
+    currentIndex++
+  }
+
+  // debugger;
+  //  changeImage();
+});
+
+// this function will only change image once to charmander
+// no loop should be needed for function
+
+
 function changeImage() {
   i++;
   if (i < imageSlider.length) {
@@ -67,17 +82,3 @@ function changeImage() {
     clearInterval(imageId);
   }
 }
-
-// $next.addEventListener('click', function (event) {
-//   for (var j = 0; j < imageSlider.length; j++) {
-//     var currentIndex = imageSlider[j];
-//     if (currentIndex) {
-//       $currentImage.setAttribute('src', imageSlider[j]);
-//     }
-//   }
-//   debugger;
-
-//   changeImage();
-// });
-
-// this function currently displays only jigglypuff image when right arrow is clicked
