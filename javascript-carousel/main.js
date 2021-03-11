@@ -67,3 +67,17 @@ function changeImage() {
     clearInterval(imageId);
   }
 }
+
+// $next.addEventListener('click', function (event) {
+//   for (var j = 0; j < imageSlider.length; j++) {
+//     var currentIndex = imageSlider[j];
+//     if (currentIndex) {
+//       $currentImage.setAttribute('src', imageSlider[j]);
+//     }
+//   }
+//   debugger;
+
+//   changeImage();
+// });
+
+// this function currently displays only jigglypuff image when right arrow is clicked
