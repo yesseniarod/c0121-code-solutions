@@ -36,3 +36,7 @@ span {
 .correct {
   color: #98da1f;
 }
+
+.incorrect {
+  color: #f799f1;
+}

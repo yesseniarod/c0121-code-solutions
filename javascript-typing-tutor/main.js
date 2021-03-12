@@ -1,9 +1,7 @@
-var text = 'hi world';
+var text = 'hi world ';
 var $tutor = document.querySelector('.tutor');
-var characters = text.split('');
 
-
-function createSpan() {
+function createSpanElements() {
   for (var i = 0; i < text.length; i++) {
     var $span = document.createElement('span');
     $span.textContent = text[i];
@@ -12,18 +10,23 @@ function createSpan() {
   }
 }
 
-createSpan();
+createSpanElements();
 var span = document.querySelectorAll('span');
 var firstSpan = document.querySelector('span');
 firstSpan.className = 'cursor';
 
-function matchKeys ({ key }) {
-  for (var j = 0; j < span.length; j++) {
-    var currentCharacter = text[j];
-    if (key === currentCharacter) {
-      span[j].removeAttribute('class', 'cursor');
-      span[j].className = 'correct';
-      span[++j].className = 'cursor';
+var currentIndex = 0;
+
+function matchKeys({ key }) {
+  if (currentIndex < span.length - 1) {
+    if (key === span[currentIndex].textContent) {
+      span[currentIndex].removeAttribute('class', 'cursor');
+      span[currentIndex].className = 'correct';
+      span[++currentIndex].classList.add('cursor');
+    } else if (key !== span[currentIndex].textContent) {
+      span[currentIndex].removeAttribute('class', 'cursor');
+      span[currentIndex].className = 'incorrect';
+      span[currentIndex].classList.add('cursor');
     }
   }
 }
