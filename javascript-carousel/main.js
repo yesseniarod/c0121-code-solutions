@@ -2,18 +2,15 @@ var $next = document.querySelector('.next');
 var $previous = document.querySelector('.previous');
 var $currentImage = document.querySelector('.first');
 var $dotContainer = document.querySelector('.dots');
+var $dots = document.querySelectorAll('.dot');
 
 $dotContainer.addEventListener('click', event => {
-  if (event.target && event.target.matches('input.dot1')) {
-    $currentImage.setAttribute('src', './images/001.png');
-  } else if (event.target && event.target.matches('input.dot2')) {
-    $currentImage.setAttribute('src', './images/004.png');
-  } else if (event.target && event.target.matches('input.dot3')) {
-    $currentImage.setAttribute('src', './images/007.png');
-  } else if (event.target && event.target.matches('input.dot4')) {
-    $currentImage.setAttribute('src', './images/025.png');
-  } else if (event.target && event.target.matches('input.dot5')) {
-    $currentImage.setAttribute('src', './images/039.png');
+  if (event.target.matches('.dot')) {
+    for (var j = 0; j < $dots.length; j++) {
+      if (event.target === $dots[j]) {
+        $currentImage.setAttribute('src', imageSlider[j]);
+      }
+    }
   }
 });
 
