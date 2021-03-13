@@ -22,9 +22,7 @@ Bank.prototype.getAccount = function (number) {
       return this.accounts[i];
     }
   }
-  if (number !== this.accounts.number) {
-    return null;
-  }
+  return null;
 };
 
 Bank.prototype.getTotalAssets = function () {
