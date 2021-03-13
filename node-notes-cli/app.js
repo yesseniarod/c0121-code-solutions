@@ -17,7 +17,6 @@ if (process.argv[2] === 'create') {
   });
 }
 
-// for (const key in dataModel.notes) {
 if (process.argv[2] === 'delete') {
   const key = process.argv[3];
   delete dataModel.notes[key];
@@ -26,7 +25,6 @@ if (process.argv[2] === 'delete') {
     if (err) throw err;
   });
 }
-// }
 
 if (process.argv[2] === 'update') {
   const key = process.argv[3];
