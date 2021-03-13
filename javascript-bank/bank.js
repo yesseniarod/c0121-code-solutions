@@ -7,7 +7,7 @@ function Bank() {
 Bank.prototype.openAccount = function (holder, balance) {
   if (balance > 0) {
     var account = new Account(this.nextAccountNumber, holder);
-    account.transactions.push(balance);
+    account.deposit(balance);
     this.accounts.push(account);
     this.nextAccountNumber++;
     return account.number;
@@ -17,23 +17,24 @@ Bank.prototype.openAccount = function (holder, balance) {
 };
 
 Bank.prototype.getAccount = function (number) {
-  var account = new Account(number, this.holder);
-  //  console.log("account.number:", account.number); returns number passed
-  //  console.log('number:', number); returns number passed
-  //  console.log('this.accounts.number:', this.accounts[0].number); returns account number for account object in this.acounts
-  //  console.log('this.accounts:', this.accounts); returns array of accounts
-  // for (var i = 0; i < this.accounts; i++) invalid loop only allows one iteration {
-  if (this.accounts[0].number === account.number) {
-    return this.accounts;
-  } else {
+  for (var i = 0; i < this.accounts.length; i++) {
+    if (this.accounts[i].number === number) {
+      return this.accounts[i];
+    }
+  }
+  if (number !== this.accounts.number) {
     return null;
   }
+};
 
-  // }
-
-  //  if (this.accounts[i].number !== number) {
-  //    return null;
-  //  } else {
-
-//  }
+Bank.prototype.getTotalAssets = function () {
+  var total = 0;
+  if (this.accounts.length === 0) {
+    return 0;
+  } else {
+    for (var i = 0; i < this.accounts.length; i++) {
+      total += this.accounts[i].getBalance();
+    }
+    return total;
+  }
 };
