@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 900px;
+  height: 500px;
+  overflow: hidden;
+  display: flex;
+  margin: 10rem auto;
+}
+
+.carousel {
+  border: 1px solid black;
+  text-align: center;
+  background-color: pink;
+}
+
+.select {
+  display: flex;
+  margin: auto;
+  font-size: 2rem;
+}
+
+.dots {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  right: 28rem;
+  bottom: 1rem;
+}
