@@ -35,7 +35,7 @@ app.listen(3000, () => {
 });
 
 app.delete('/api/grades/:id', (req, res) => {
-  const key = parseInt(req.params.id, 10);
+  const key = Number(req.params.id);
   if (grades[key]) {
     delete grades[key];
     res.sendStatus(204);
