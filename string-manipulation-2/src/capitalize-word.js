@@ -4,7 +4,7 @@ function capitalizeWord(word) {
   var seperateWord = lowerCase.slice(1, 4);
   var firstLetter = word[0];
   var upperCase = firstLetter.toUpperCase();
-  if (word.length > 4) {
+  if (lowerCase === 'javascript') {
     var remainderOfWord = lowerCase.slice(5, 10);
     var specialCase = word[4];
     var specialUpperCase = specialCase.toUpperCase();
