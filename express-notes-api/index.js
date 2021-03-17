@@ -38,11 +38,9 @@ app.use(express.json());
 
 app.post('/api/notes', (req, res) => {
   const content = req.body;
-  if (req.body['content-length'] === 0) {
+  if (Object.keys(content).length === 0) {
     res.status(400);
     res.send({ error: 'content is a required field' });
-    // does not work, will still post with empty content
-    // how can we check if req.body content is empty
   } else if (content && res.statusCode === 200) {
     let nextId = data.nextId;
     req.body.id = nextId++;
@@ -54,3 +52,36 @@ app.post('/api/notes', (req, res) => {
     res.send({ error: 'unexpected error occured' });
   }
 });
+
+app.delete('/api/notes/:id', (req, res) => {
+  const deleteId = Number(req.params.id);
+  if (deleteId < 0) {
+    res.status(400);
+    res.send({ error: 'id must be a positive integer' });
+  } else if (!data.notes[deleteId]) {
+    res.status(404);
+    res.send({ error: `cannot find note with id ${deleteId}` });
+  } else if (data.notes[deleteId]) {
+    delete data.notes[deleteId];
+    res.sendStatus(204);
+  } else {
+    res.status(500);
+    res.send({ error: 'unexpected error occurred' });
+  }
+});
+
+app.put('/api/notes/:id', (req, res, next) => {
+  const putId = Number(req.params.id);
+  const content = req.body;
+  if (putId < 0 || Object.keys(content).length === 0) {
+    res.status(400);
+    res.send({ error: 'id must be a positive integer' });
+    res.send({ error: 'content is a required field' });
+    // messages sent should correlate with issue
+  } else if (!data.notes[putId]) {
+    res.status(404);
+    res.send({ error: `cannot find note with id ${putId}` });
+  }
+});
+
+// stopped at clients can replace note #3
