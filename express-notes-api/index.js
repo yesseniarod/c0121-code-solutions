@@ -47,15 +47,17 @@ app.post('/api/notes', (req, res) => {
     req.body.id = key;
     data.notes[key] = req.body;
     data.nextId++;
-    res.status(201);
-    res.send(req.body);
     const notesObject = JSON.stringify(data, null, 2);
     fs.writeFile('data.json', notesObject, 'utf8', err => {
-      if (err) throw err;
+      if (err) {
+        console.error(err);
+        res.status(500);
+        res.send({ error: 'unexpected error occured' });
+      } else {
+        res.status(201);
+        res.send(req.body);
+      }
     });
-  } else if (content && res.statusCode !== 200) {
-    res.status(500);
-    res.send({ error: 'unexpected error occured' });
   }
 });
 
@@ -69,14 +71,16 @@ app.delete('/api/notes/:id', (req, res) => {
     res.send({ error: `cannot find note with id ${deleteId}` });
   } else if (data.notes[deleteId]) {
     delete data.notes[deleteId];
-    res.sendStatus(204);
     const notesObject = JSON.stringify(data, null, 2);
     fs.writeFile('data.json', notesObject, 'utf8', err => {
-      if (err) throw err;
+      if (err) {
+        console.error(err);
+        res.status(500);
+        res.send({ error: 'unexpected error occurred' });
+      } else {
+        res.sendStatus(204);
+      }
     });
-  } else {
-    res.status(500);
-    res.send({ error: 'unexpected error occurred' });
   }
 });
 
@@ -97,15 +101,16 @@ app.put('/api/notes/:id', (req, res, next) => {
     const key = putId;
     req.body.id = key;
     data.notes[key] = req.body;
-    res.status(200);
-    res.send(content);
     const notesObject = JSON.stringify(data, null, 2);
     fs.writeFile('data.json', notesObject, 'utf8', err => {
-      if (err) throw err;
+      if (err) {
+        console.error(err);
+        res.status(500);
+        res.send({ error: 'unexpected error occured' });
+      } else {
+        res.status(200);
+        res.send(content);
+      }
     });
-  } else {
-    res.status(500);
-    res.send({ error: 'unexpected error occured' });
-
   }
 });
