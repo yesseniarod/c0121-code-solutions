@@ -94,11 +94,11 @@ app.put('/api/notes/:id', (req, res, next) => {
     res.status(404);
     res.send({ error: `cannot find note with id ${putId}` });
   } else if (data.notes[putId]) {
-    res.status(200);
-    res.send(content);
     const key = putId;
     req.body.id = key;
-    data.notes[key] = content;
+    data.notes[key] = req.body;
+    res.status(200);
+    res.send(content);
     const notesObject = JSON.stringify(data, null, 2);
     fs.writeFile('data.json', notesObject, 'utf8', err => {
       if (err) throw err;
@@ -109,6 +109,3 @@ app.put('/api/notes/:id', (req, res, next) => {
 
   }
 });
-
-// final step repeat request and take screenshots of terminal
-// submit
