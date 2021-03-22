@@ -38,7 +38,6 @@ app.get('/api/grades', (req, res) => {
 
 app.use(express.json());
 
-// post route works
 app.post('/api/grades', (req, res) => {
   const newGrades = req.body;
 
@@ -98,23 +97,19 @@ app.put('/api/grades/:gradeId', (req, res) => {
         returning *
   `;
 
-  const values = [req.body.name, req.body.course, req.body.score, req.param.gradeId];
-  // const checkId = [updateGradeId];
-  // const updatedRowIndex = updateGradeId - 1;
+  const values = [req.body.name, req.body.course, req.body.score, updateGradeId];
 
   dataBase.query(sql, values)
     .then(result => {
-      const updateGrade = result.rows[updateGradeId - 1];
-      // tried numerical value and still gave errors
+      const updateGrade = result.rows[result.rows.length - 1];
+
       if (updateGrade) {
         res.status(200);
         res.send(updateGrade);
-        // if valid gradeId, will give error
 
-      } else if (!updateGrade) {
+      } else {
         res.status(404);
         res.send({ error: `cannot find grade with gradeId ${updateGradeId}` });
-        // will post grade even if it says id not found
       }
     })
     .catch(err => {
@@ -123,4 +118,38 @@ app.put('/api/grades/:gradeId', (req, res) => {
       res.send({ error: 'unexpected error occurred' });
     });
 
+});
+
+app.delete('/api/grades/:gradeId', (req, res) => {
+  const deleteGradeId = parseInt(req.params.gradeId, 10);
+  if (deleteGradeId <= 0) {
+    res.status(400);
+    res.send({ error: 'invalid gradeId must be positive integer' });
+    return;
+  }
+
+  const sql = `
+        delete from "grades"
+        where "gradeId" = $1
+        returning *
+  `;
+
+  const values = [deleteGradeId];
+
+  dataBase.query(sql, values)
+    .then(result => {
+      const deleteGrade = result.rows[result.rows.length - 1];
+      if (!deleteGrade) {
+        res.status(404);
+        res.send({ error: `cannot find gradeId ${deleteGradeId}` });
+      } else {
+        res.status(204);
+        res.send(deleteGrade);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500);
+      res.send({ error: 'unexpected error occurred' });
+    });
 });
