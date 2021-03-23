@@ -26,15 +26,13 @@ const product = numbers.reduce((accumulator, currentValue) => {
 });
 
 const initialValue = 0;
-let withdrawal = 0;
-let deposit = 0;
 const balance = account.reduce((accumulator, currentValue, currentIndex) => {
   if (account[currentIndex].type === 'withdrawal') {
-    withdrawal += currentValue.amount;
+    accumulator -= currentValue.amount;
   } else {
-    deposit += currentValue.amount;
+    accumulator += currentValue.amount;
   }
-  return deposit - withdrawal;
+  return accumulator;
 }, initialValue);
 
 const composite = traits.reduce((accumulator, currentValue) => {
