@@ -41,15 +41,18 @@ app.use(express.json());
 app.post('/api/grades', (req, res) => {
   const newGrades = req.body;
 
-  if (req.body.score <= 0 || Object.keys(newGrades).length < 2) {
-    res.status(400);
-    if (Object.keys(newGrades).length < 2) {
-      res.send({ error: 'must include name, course, and score' });
-      return;
-    } else {
-      res.send({ error: 'score must be a positive integer' });
-      return;
-    }
+  if (req.body.score < 1 || req.body.score > 100) {
+    res.status(400).json({ error: 'score must be a number between 1 and 100' });
+    return;
+  } else if (req.body.name === undefined) {
+    res.status(400).json({ error: 'must include name' });
+    return;
+  } else if (req.body.course === undefined) {
+    res.status(400).json({ error: 'must include course' });
+    return;
+  } else if (req.body.score === undefined) {
+    res.status(400).json({ error: 'must include score' });
+    return;
   }
 
   const sql = `
@@ -60,7 +63,7 @@ app.post('/api/grades', (req, res) => {
   const values = [req.body.name, req.body.course, req.body.score];
   dataBase.query(sql, values)
     .then(result => {
-      const newRow = result.rows[result.rows.length - 1];
+      const newRow = result.rows[0];
       if (newGrades) {
         res.status(201);
         res.send(newRow);
@@ -74,18 +77,22 @@ app.post('/api/grades', (req, res) => {
 });
 
 app.put('/api/grades/:gradeId', (req, res) => {
-  const grade = req.body;
   const updateGradeId = parseInt(req.params.gradeId, 10);
-
-  if (updateGradeId <= 0 || Object.keys(grade).length < 2) {
-    res.status(400);
-    if (updateGradeId <= 0) {
-      res.send({ error: 'invalid gradeId' });
-      return;
-    } else {
-      res.send({ error: 'name, course, or score may be invalid or missing' });
-      return;
-    }
+  if (updateGradeId < 1 || !Number.isInteger(updateGradeId)) {
+    res.status(400).json({ error: 'invalid gradeId' });
+    return;
+  } else if (req.body.name === undefined) {
+    res.status(400).json({ error: 'must include name' });
+    return;
+  } else if (req.body.course === undefined) {
+    res.status(400).json({ error: 'must include course' });
+    return;
+  } else if (req.body.score === undefined) {
+    res.status(400).json({ error: 'must include score' });
+    return;
+  } else if (req.body.score < 1 || req.body.score > 100) {
+    res.status(400).json({ error: 'score must be a number between 1 and 100' });
+    return;
   }
 
   const sql = `
@@ -101,7 +108,7 @@ app.put('/api/grades/:gradeId', (req, res) => {
 
   dataBase.query(sql, values)
     .then(result => {
-      const updateGrade = result.rows[result.rows.length - 1];
+      const updateGrade = result.rows[0];
 
       if (updateGrade) {
         res.status(200);
@@ -138,7 +145,7 @@ app.delete('/api/grades/:gradeId', (req, res) => {
 
   dataBase.query(sql, values)
     .then(result => {
-      const deleteGrade = result.rows[result.rows.length - 1];
+      const deleteGrade = result.rows[0];
       if (!deleteGrade) {
         res.status(404);
         res.send({ error: `cannot find gradeId ${deleteGradeId}` });
