@@ -1,0 +1,29 @@
+button {
+  width: 5rem;
+  height: 1.5rem;
+  border-radius: 10%;
+}
+
+.original {
+  background-color: blueviolet;
+}
+
+.secondLevel {
+  background-color: plum;
+}
+
+.thirdLevel {
+  background-color: salmon;
+}
+
+.fourthLevel {
+  background-color: sandybrown;
+}
+
+.fifthLevel {
+  background-color: yellow;
+}
+
+.lastLevel {
+  background-color: white;
+}
