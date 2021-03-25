@@ -22,7 +22,9 @@ class HotButton extends React.Component {
       return <button className='fourthLevel' onClick={this.handleClick}>Hot Button</button>;
     } else if (this.state.value <= 15) {
       return <button className='fifthLevel' onClick={this.handleClick}>Hot Button</button>;
-    } else if (this.state.value > 15) {
+    } else if (this.state.value <= 18) {
+      return <button className='lastLevel' onClick={this.handleClick}>Hot Button</button>;
+    } else {
       return <button className='lastLevel' onClick={this.handleClick}>Hot Button</button>;
     }
   }
