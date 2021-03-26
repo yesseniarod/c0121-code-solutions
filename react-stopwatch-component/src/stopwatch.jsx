@@ -42,8 +42,7 @@ class StopWatch extends React.Component {
     } else {
       this.setState({
         startTime: this.state.startTime,
-        isPlaying: false,
-        isPaused: true
+        isPlaying: false
       });
     }
   }
