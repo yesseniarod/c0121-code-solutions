@@ -1,0 +1,40 @@
+.containerOn,
+.containerOff {
+  width: 6.5rem;
+  height: 2.5rem;
+  border-radius: 30px;
+  display: flex;
+}
+
+.containerOn {
+  background-color: lightgreen;
+}
+
+.switchOn,
+.switchOff {
+  width: 1.5rem;
+  height: 2rem;
+  border-radius: 100%;
+  position: relative;
+  bottom: 0.25rem;
+  background-color: white;
+}
+
+.switchOn {
+  left: 0.75rem;
+}
+
+.containerOff {
+  background-color: lightgrey;
+}
+
+.switchOff {
+  left: -3rem;
+}
+
+div {
+  margin-top: 0.5rem;
+  justify-content: flex-end;
+  position: relative;
+  left: 2rem;
+}
