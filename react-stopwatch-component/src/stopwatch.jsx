@@ -5,8 +5,7 @@ class StopWatch extends React.Component {
     super(props);
     this.state = {
       startTime: 0,
-      isPlaying: false,
-      isPaused: true
+      isPlaying: false
     };
     this.tick = this.tick.bind(this);
     this.pauseTick = this.pauseTick.bind(this);
@@ -18,8 +17,7 @@ class StopWatch extends React.Component {
     this.intervalId = setInterval(() => {
       this.setState({
         startTime: this.state.startTime + 1,
-        isPlaying: true,
-        isPaused: false
+        isPlaying: true
       });
     }, 1000);
   }
@@ -31,8 +29,7 @@ class StopWatch extends React.Component {
   resetTick() {
     this.setState({
       startTime: 0,
-      isPlaying: false,
-      isPaused: true
+      isPlaying: false
     });
   }
 
@@ -40,38 +37,14 @@ class StopWatch extends React.Component {
     if (!this.state.isPlaying) {
       this.setState({
         startTime: this.state.startTime,
-        isPlaying: true,
-        isPaused: false
+        isPlaying: true
       });
-      return (
-        <div>
-          <div className='stopwatch-face'>
-            <h1 onClick={this.resetTick}>{this.state.startTime}</h1>
-          </div>
-          <div className='controlButton'>
-            <i className="fas fa-pause" onClick={this.pauseTick}></i>
-          </div>
-        </div>
-      );
     } else {
       this.setState({
         startTime: this.state.startTime,
         isPlaying: false,
         isPaused: true
       });
-      return (
-        <div>
-          <div className='stopwatch-face'>
-            <h1 onClick={this.resetTick}>{this.state.startTime}</h1>
-          </div>
-          <div className='controlButton'>
-            <i className="fas fa-play" onClick={() => {
-              this.tick();
-              this.changeIcon();
-            }}></i>
-          </div>
-        </div>
-      );
     }
   }
 
