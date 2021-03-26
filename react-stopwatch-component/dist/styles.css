@@ -1,0 +1,25 @@
+.controlButton {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.stopwatch-face {
+  display: flex;
+  background-color: pink;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+i {
+  width: 1rem;
+  height: 3rem;
+  margin: auto;
+}
