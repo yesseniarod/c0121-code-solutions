@@ -110,16 +110,3 @@ class StopWatch extends React.Component {
 }
 
 export default StopWatch;
-
-// else {
-//   return (
-//     <div>
-//       <div className='stopwatch-face'>
-//         <h1 onClick={this.resetTick}>{this.state.startTime}</h1>
-//       </div>
-//       <div className='controlButton'>
-//         <button onClick={this.tick}>start</button>
-//       </div>
-//     </div>
-//   );
-// }
