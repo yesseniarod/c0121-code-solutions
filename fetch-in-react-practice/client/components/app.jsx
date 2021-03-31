@@ -76,8 +76,8 @@ export default class App extends React.Component {
      */
 
     const index = this.state.todos.findIndex(todo => todo.todoId === todoId);
-    const completedItem = this.state.todos[index];
-    const toggleObject = { isCompleted: !completedItem.isCompleted };
+    const completedStatus = this.state.todos[index].isCompleted;
+    const toggleObject = { isCompleted: !completedStatus };
     fetch(`/api/todos/${todoId}`, {
       method: 'PATCH',
       headers: {
@@ -86,10 +86,10 @@ export default class App extends React.Component {
       body: JSON.stringify(toggleObject)
     })
       .then(res => res.json())
-      .then(data => {
-        this.state.todos.splice(index, 1, toggleObject);
-        completedItem.isCompleted ? this.state.todos.push(completedItem) : this.state.todos.unshift(completedItem);
-        this.getAllTodos();
+      .then(updatedTodo => {
+        const newTodo = this.state.todos.slice();
+        newTodo[index] = updatedTodo;
+        this.setState({ todos: newTodo });
       })
       .catch(error => console.error(error));
   }
