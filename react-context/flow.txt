@@ -1,0 +1,18 @@
+User can sign up:
+* client sends a request to the server with username and password in the req body
+new user information is saved in the database (password hashed)
+
+User can sign in:
+* when sign in button is clicked, client sends a request to the server with their username and password
+* database searches for credentials provided
+* information is verified
+  - if credentials are correct will allow user to proceed with sign in and a token is sent along with authorization
+  - else request is denied
+
+User can stay signed in:
+* user token is stored in localStorage which allows the user to stay logged in    even after page is refreshed
+
+User can sign out:
+* when user clicks sign out button it triggers a change in state for the application
+  - results in user key value being set to null
+  - then the application renders again and the user's token is removed from local storage
