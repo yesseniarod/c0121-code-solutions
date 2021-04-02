@@ -1,18 +1,32 @@
 User can sign up:
-* client sends a request to the server with username and password in the req body
-new user information is saved in the database (password hashed)
+* user clicks on register now link which results in a hashchange event.
+* then the user is redirected to the sign up page
+* client sends a request to the server with username and password
+* the server checks if any required information is missing (username/password)
+* if all required information is provided, the password is hashed, the user's credentials are added to the database to create an account
+* the server will respond to the user with a status code which lets the user know if the request was successful or not
+* if the request was succesful the server will also respond with username and userId
 
 User can sign in:
-* when sign in button is clicked, client sends a request to the server with their username and password
-* database searches for credentials provided
-* information is verified
-  - if credentials are correct will allow user to proceed with sign in and a token is sent along with authorization
-  - else request is denied
+* user enters credentials and clicks the log in button
+* then post request is made to the server
+* database searches for a match for credentials provided
+  - if username/password is not provided the server responds with a client error and 401 status code
+* verify information
+  - if the database finds a username that matches the input credentials, the password entered is hashed and compared to the hashed password saved in the database. If the password matches, a web token is generated and grants the user access
+  - else request is denied and the server responds with a client error 401 status code
+* a successful log in results in another hashchange event which leads to a change in state of the application
+* the page renders again and takes user to homepage
+
 
 User can stay signed in:
-* user token is stored in localStorage which allows the user to stay logged in    even after page is refreshed
+* when the page is reloaded, application checks if token in local stoarge matches the react-context-jwt
+ - if it does match, the token is decoded and state is updated to user and isAuthorizing is set to false
+ - else the user is taken to the sign up page
+
 
 User can sign out:
-* when user clicks sign out button it triggers a change in state for the application
+* when user clicks sign out button the user's token is removed from local storage
+and triggers a change in state for the application
   - results in user key value being set to null
-  - then the application renders again and the user's token is removed from local storage
+  - then the application renders again and user is taken to sign in page
