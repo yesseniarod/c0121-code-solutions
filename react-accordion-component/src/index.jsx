@@ -1,27 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Accordion from './accordion';
-
-function ListItem(props) {
-  return <li>{props.value}</li>;
-}
-
-function ThemeList(props) {
-  const themes = props.themes;
-  const listItems = themes.map(({ id, title, description }) => {
-    return (
-      <>
-    <ListItem key={id} value={title} />
-    <p>{description}</p>
-    </>
-    );
-  });
-  return (
-    <ul>
-      {listItems}
-    </ul>
-  );
-}
+import Accordion from './accordion';
 
 const themes = [
   {
@@ -42,9 +21,8 @@ const themes = [
 ];
 
 ReactDOM.render(
-  <ThemeList themes={themes} />,
+  <Accordion themes={themes} />,
   document.getElementById('root')
 );
 
 // in progress
-// prints list to page, error in console each child in a list should have a unique key prop

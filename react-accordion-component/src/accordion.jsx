@@ -4,40 +4,37 @@ class Accordion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: null
     };
 
     this.showContent = this.showContent.bind(this);
   }
 
-  showContent() {
-    this.setState({
-      isOpen: true
-    });
+  showContent(event) {
+    const selected = event.target.getAttribute('subject');
+    if (selected === this.state.isOpen) {
+      this.setState({
+        isOpen: null
+      });
+    } else {
+      this.setState({
+        isOpen: selected
+      });
+    }
   }
 
   render() {
-    if (!this.state.isOpen) {
+    const subjects = this.props.themes.map(subject => {
+      const hide = subject.title === this.state.isOpen ? '' : 'hidden';
       return (
-         <div className='container'>
-           <div className='html' onClick={this.showContent}></div>
-           <div className='css'></div>
-           <div className='javascript'></div>
-         </div>
+            <div key={subject.id} className='subject'>
+            <div className='title' subject={subject.title} onClick={this.showContent}> {subject.title} </div>
+            <div className={hide}>{subject.description}</div>
+            </div>
       );
-    }
-    return (
-       <div className='container'>
-         <div className='html'></div>
-         <div className='css'></div>
-         <div className='javascript'></div>
-       </div>
-    );
+    });
+    return subjects;
   }
 }
 
 export default Accordion;
-
-// in progress
-// right now this component is not being rendered
-// need to make adjustments and import function from index
